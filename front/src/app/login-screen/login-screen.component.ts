@@ -6,8 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './login-screen.component.html',
-  styleUrl: './login-screen.component.css'
+  styleUrl: './login-screen.component.css',
 })
-export class LoginScreenComponent {
-
-}
+export class LoginScreenComponent {}
