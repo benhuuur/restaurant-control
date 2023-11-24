@@ -8,6 +8,7 @@ import { AdmProductsManagementScreenComponent } from './adm-products-management-
 import { RegisterScreenComponent } from './register-screen/register-screen.component';
 import { ClientProductsScreenComponent } from './client-products-screen/client-products-screen.component';
 import { ClientOffersScreenComponent } from './client-offers-screen/client-offers-screen.component';
+import { ClientScreenComponent } from './client-screen/client-screen.component';
 
 export const routes: Routes = [
   { path: '', component: LoginScreenComponent },
@@ -27,6 +28,7 @@ export const routes: Routes = [
   {
     path: 'client',
     children: [
+      { path: '', component: ClientScreenComponent },
       { path: 'products', component: ClientProductsScreenComponent },
       { path: 'offers', component: ClientOffersScreenComponent },
     ],
