@@ -1,8 +1,53 @@
 <div class="container-body">
-  <div class="d-flex">
-    <div class="box"><span style="color: aliceblue;">OI</span></div>
-    <div class="box"><span style="color: aliceblue;">OI</span></div>
-    <div class="box"><span style="color: aliceblue;">OI</span></div>
-    <div class="box"><span style="color: aliceblue;">OI</span></div>
+  <nav class="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/adm"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="29"
+          height="29"
+          fill="currentColor"
+          class="bi bi-arrow-left"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+          /></svg
+      ></a>
+    </div>
+  </nav>
+  <div class="d-flex flex-wrap justify-content-center">
+    <div class="box">
+      <div class="request-header">
+        <span>Pedido N° 3 Para Levar</span>
+      </div>
+      <button class="finish-request-button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="white"
+          class="bi bi-check-lg"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022"
+          />
+        </svg>
+        <span class="text-button"> Finalizar </span>
+      </button>
+      <table class="table table-stripped">
+        <tr>
+          <input type="checkbox" class="request-checkbox" />
+          <span class="request-product">Qtd Produto</span>
+        </tr>
+        <tr>
+          <input type="checkbox" class="request-checkbox" />
+          <span class="request-quantity">1</span
+          ><span class="request-product"> Pastel c/ Carne</span>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
