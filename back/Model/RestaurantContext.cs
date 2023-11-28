@@ -32,7 +32,7 @@ public partial class RestaurantContext : DbContext
     {
         modelBuilder.Entity<Image>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Images__3214EC27B05CE6DC");
+            entity.HasKey(e => e.Id).HasName("PK__Images__3214EC2798F2F9EE");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Picture).IsRequired();
@@ -40,7 +40,7 @@ public partial class RestaurantContext : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC2779FB27DE");
+            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC27C867CFA0");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Description)
@@ -60,7 +60,7 @@ public partial class RestaurantContext : DbContext
 
         modelBuilder.Entity<ProductsRequest>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC275DA462A9");
+            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC27A7383A1B");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
@@ -79,7 +79,7 @@ public partial class RestaurantContext : DbContext
 
         modelBuilder.Entity<Request>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Requests__3214EC27D9A4F2E6");
+            entity.HasKey(e => e.Id).HasName("PK__Requests__3214EC275F464F06");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.UserId).HasColumnName("UserID");
@@ -92,7 +92,7 @@ public partial class RestaurantContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC270AE87DA4");
+            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC27328F2486");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Cpf)

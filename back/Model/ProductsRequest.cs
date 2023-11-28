@@ -11,7 +11,7 @@ public partial class ProductsRequest
 
     public int RequestId { get; set; }
 
-    public double Total { get; set; }
+    public int Quantity { get; set; }
 
     public virtual Product Product { get; set; }
 

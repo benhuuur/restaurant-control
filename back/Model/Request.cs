@@ -9,6 +9,8 @@ public partial class Request
 
     public int UserId { get; set; }
 
+    public double Total { get; set; }
+
     public virtual ICollection<ProductsRequest> ProductsRequests { get; set; } = new List<ProductsRequest>();
 
     public virtual User User { get; set; }
