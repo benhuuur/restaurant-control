@@ -8,4 +8,11 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login-screen.component.html',
   styleUrl: './login-screen.component.css',
 })
-export class LoginScreenComponent {}
+export class LoginScreenComponent {
+  username: string = ''
+  password: string = ''
+
+  logar(){
+    
+  }
+}

@@ -3,10 +3,10 @@
 >
   <div class="d-flex flex-column">
     <label for="username">Email:</label>
-    <input type="text" name="username" id="" />
+    <input type="text" name="username" id="" [(ngModel)]="username" />
     <label for="password">Senha:</label>
-    <input type="password" name="password" id="" />
-    <button class="button">Logar</button>
+    <input type="password" name="password" id="" [(ngModel)]="password"/>
+    <button class="button" (click)="login()">Logar</button>
     <a href="/register"><button class="button">Cadastrar</button></a>
   </div>
 </div>
