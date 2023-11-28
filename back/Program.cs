@@ -2,9 +2,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using back.Model;
+using back.services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<RestaurantContext>();
+builder.Services.AddTransient<IUserService, UserService>();
 
 builder.Services.AddControllers();
 
