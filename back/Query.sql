@@ -20,6 +20,7 @@ create table Users(
 	ID int identity primary key,
 	Name varchar(100) not null,
 	Email varchar(100) not null,
+	Cpf varchar(20) not null,
 	IsAdm bit not null,
 	Password varchar(MAX) not null,
 	Salt varchar(200) not null,
@@ -50,3 +51,5 @@ create table ProductsRequests(
 	Total float not null
 );
 go
+
+-- .\createModel.ps1 CT-C-001P5\SQLEXPRESS restaurant   

@@ -26,14 +26,13 @@ public partial class RestaurantContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=CT-C-001P5\\SQLEXPRESS;Initial Catalog=restaurant;Integrated Security=True;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Image>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Images__3214EC27C9A9BA08");
+            entity.HasKey(e => e.Id).HasName("PK__Images__3214EC27B05CE6DC");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Picture).IsRequired();
@@ -41,7 +40,7 @@ public partial class RestaurantContext : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC278EDE0C5C");
+            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC2779FB27DE");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Description)
@@ -61,7 +60,7 @@ public partial class RestaurantContext : DbContext
 
         modelBuilder.Entity<ProductsRequest>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC27271DD233");
+            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC275DA462A9");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
@@ -80,7 +79,7 @@ public partial class RestaurantContext : DbContext
 
         modelBuilder.Entity<Request>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Requests__3214EC27C4744139");
+            entity.HasKey(e => e.Id).HasName("PK__Requests__3214EC27D9A4F2E6");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.UserId).HasColumnName("UserID");
@@ -93,9 +92,13 @@ public partial class RestaurantContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC27E22EE4C2");
+            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC270AE87DA4");
 
             entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.Cpf)
+                .IsRequired()
+                .HasMaxLength(20)
+                .IsUnicode(false);
             entity.Property(e => e.Email)
                 .IsRequired()
                 .HasMaxLength(100)
