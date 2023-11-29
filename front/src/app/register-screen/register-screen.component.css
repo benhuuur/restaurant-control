@@ -7,3 +7,13 @@
   margin-top: 1rem;
   width: 189px;
 }
+
+.Good {
+  visibility: hidden;
+  height: 0px;
+}
+
+.Bad {
+  visibility: visible;
+  color: red;
+}

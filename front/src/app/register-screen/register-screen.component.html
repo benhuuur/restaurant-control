@@ -3,16 +3,18 @@
 >
   <div class="d-flex flex-column">
     <label for="name">Nome:</label>
-    <input type="text" name="name" id="" />
+    <input type="text" name="name" id="" [(ngModel)]="name"/>
     <label for="email">Email:</label>
-    <input type="text" name="email" id="" />
+    <input type="text" name="email" id="" [(ngModel)]="email"/>
     <label for="password">Senha:</label>
-    <input type="password" name="password" id="" />
+    <input type="password" name="password" id="" [(ngModel)]="password"/>
     <label for="repeat-password">Repetir Senha:</label>
-    <input type="password" name="repeat-password" id="" />
+    <input type="password" name="repeat-password" id="" [(ngModel)]="repeatPassword"/>
+    <span [ngClass]="validatePassword">As senhas não são iguais</span>
     <label for="cpf">Cpf:</label>
-    <input type="text" name="cpf" id="" />
-    <button class="button">Cadastrar</button>
+    <input type="text" name="cpf" [(ngModel)]="cpf"/>
+    <span [ngClass]="validateCpf">Cpf inválido</span>
+    <button class="button" (click)="create()">Cadastrar</button>
     <a href="/"><button class="button">Cancelar</button></a>
   </div>
 </div>

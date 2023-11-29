@@ -21,7 +21,8 @@ builder.Services.AddCors(options =>
             policy
                 .AllowAnyHeader()
                 .AllowAnyMethod()
-                .SetIsOriginAllowed(url => url == "http://localhost:4200/");
+                // .SetIsOriginAllowed(url => url == "http://localhost:4200/");
+                .AllowAnyOrigin();
         }
     );
 });
@@ -40,6 +41,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors();
 
 app.UseHttpsRedirection();
 
