@@ -11,6 +11,21 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<RestaurantContext>();
 builder.Services.AddTransient<IUserService, UserService>();
 
+// Cors
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        "DefaultPolicy",
+        policy =>
+        {
+            policy
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .SetIsOriginAllowed(url => url == "http://localhost:4200/");
+        }
+    );
+});
+
 builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

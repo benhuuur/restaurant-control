@@ -29,7 +29,8 @@ go
 
 create table Requests(
 	ID int identity primary key,
-	UserID int references Users(ID) not null
+	UserID int references Users(ID) not null,
+	Total float not null
 );
 go
 
@@ -48,7 +49,7 @@ create table ProductsRequests(
 	ID int identity primary key,
 	ProductID int references Products(ID) not null,
 	RequestID int references Requests(ID) not null,
-	Total float not null
+	Quantity int not null,
 );
 go
 
