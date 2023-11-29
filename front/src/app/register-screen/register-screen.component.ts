@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientService } from '../../services/client-service.service';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register-screen',
@@ -11,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './register-screen.component.css'
 })
 export class RegisterScreenComponent {
-  constructor(private client: ClientService){}
+  constructor(private client: ClientService, private router: Router){}
 
   validatePassword = 'Good'
   validateCpf = 'Good'
@@ -42,6 +43,12 @@ export class RegisterScreenComponent {
       email : this.email,
       password : this.password,
       cpf : this.cpf
+    }, (response:any) =>
+    {
+      if(response.message){
+        this.router.navigate(['/'])
+      }
     })
+
   }
 }

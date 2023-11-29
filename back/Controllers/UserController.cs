@@ -7,6 +7,7 @@ using services;
 using DTO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Identity;
 
 [ApiController] //Controlador da API
 [Route("user")]
@@ -34,8 +35,9 @@ public class UserController : ControllerBase
         [FromServices] IUserService service
     )
     {
-        Console.WriteLine("Cheguei");
         await service.Create(user);
-        return Ok("Usuario Cadastrado com sucesso");
+        return Ok(new {
+            message = true
+        });
     }
 }

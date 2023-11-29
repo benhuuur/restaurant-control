@@ -8,10 +8,10 @@ import { ApiClientService } from './api-client.service';
 export class ClientService {
   constructor(private http : ApiClientService) {}
 
-  register(data: UserCreateData) 
+  register(data: UserCreateData, callback: any) 
   {
     this.http.post('user', data)
-    .subscribe(response => console.log(response))
+    .subscribe(response => callback(response))
   }
 }
 
