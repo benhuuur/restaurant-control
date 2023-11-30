@@ -5,7 +5,7 @@ using Microsoft.Extensions.Hosting;
 using Trevisharp.Security.Jwt;
 
 using back.Model;
-using back.services;
+using back.Services;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +17,7 @@ builder.Services.AddSingleton<CryptoService>(p => new(){
     InternalKeySize = 24,
     UpdatePeriod = TimeSpan.FromDays(1)
 });
+builder.Services.AddSingleton<ISecurityService, SecurityService>();
 
 // Cors
 builder.Services.AddCors(options =>

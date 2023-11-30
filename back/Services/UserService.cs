@@ -4,7 +4,7 @@ using back.Model;
 using DTO;
 using Microsoft.EntityFrameworkCore;
 
-namespace back.services;
+namespace back.Services;
 
 public class UserService : IUserService
 {

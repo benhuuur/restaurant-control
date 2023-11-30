@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace back.services;
+namespace back.Services;
 
 using System.Collections;
 using DTO;
