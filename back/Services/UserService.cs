@@ -9,16 +9,23 @@ namespace back.Services;
 public class UserService : IUserService
 {
     RestaurantContext context;
-    public UserService(RestaurantContext context)
-        => this.context = context;
+    ISecurityService security;
+    public UserService(RestaurantContext context, ISecurityService security)
+       {
+            this.context = context;
+            this.security = security;
+       }
     public async Task Create(UserCreateData data)
     {
         User user = new User();
+        var salt = await security.GenerateSalt();
         user.Name = data.Name;
         user.Email = data.Email;
         user.Cpf = data.Cpf;
-        user.Password = data.Password; //??????
-        user.Salt = "????";
+        user.Password = await security.HashPassword(
+            data.Password, salt
+        );
+        user.Salt = salt;
         
         this.context.Add(user);
         await this.context.SaveChangesAsync();
@@ -28,7 +35,7 @@ public class UserService : IUserService
     {
         var query = 
             from u in this.context.Users
-            where u.Name == login
+            where u.Cpf == login
             select u;
         
         return await query.FirstOrDefaultAsync();

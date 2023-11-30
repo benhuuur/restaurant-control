@@ -8,6 +8,7 @@ using DTO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
+using Trevisharp.Security.Jwt;
 
 [ApiController] //Controlador da API
 [Route("user")]
@@ -17,15 +18,22 @@ public class UserController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> Login(
         [FromBody] UserLoginData user,
-        [FromServices] IUserService service
+        [FromServices] IUserService service,
+        [FromServices] ISecurityService security,
+        [FromServices] CryptoService crypto
     )
     {
         var logged = await service.GetByLogin(user.Login);
 
-        // if(logged.Password != user.Password)
-        // return
+        if (logged.Password == null)
+            return Unauthorized("User not exists");
 
-        return Ok();
+        var password = await security.HashPassword(user.Password, logged.Salt);
+        var realPassword = logged.Password;
+        if (password != realPassword)
+            return Unauthorized("Incorrect password");
+        var jwt = crypto.GetToken(new { id = logged.Id, isAdm = logged.IsAdm });
+        return Ok(new { jwt });
     }
 
     [EnableCors("DefaultPolicy")]
@@ -35,9 +43,9 @@ public class UserController : ControllerBase
         [FromServices] IUserService service
     )
     {
+        if (await service.GetByLogin(user.Cpf) != null)
+            return BadRequest(new { message = false });
         await service.Create(user);
-        return Ok(new {
-            message = true
-        });
+        return Ok(new { message = true });
     }
 }
