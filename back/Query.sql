@@ -30,7 +30,9 @@ go
 create table Requests(
 	ID int identity primary key,
 	UserID int references Users(ID) not null,
-	Total float not null
+	Total float not null,
+	IsRedy bit not null,
+	IsDelivered bit not null
 );
 go
 
