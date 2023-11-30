@@ -23,10 +23,10 @@ Obs: 'Tem tela/Tem Interface' = Possui parte visual, mesmo sem funcionar.
 - [x] Bilbioteca de JWT instalada.
 - [x] Operação de cadastro realmente salva um usuário no banco de dados.
 - [ ] Cadastro tem algumas validações sendo mais robusto.
-- [ ] Login realmente busca usuário no banco de dados.
-- [ ] Aplica salt na senha do usuário.
-- [ ] Aplica slow Hash na senha do usuário.
-- [ ] Login retorna JWT para o frontend que o guarda no Sessin Storage.
+- [x] Login realmente busca usuário no banco de dados.
+- [x] Aplica salt na senha do usuário.
+- [x] Aplica slow Hash na senha do usuário.
+- [x] Login retorna JWT para o frontend que o guarda no Sessin Storage.
 - [ ] Após o Login a página de usuário normal ou adm é mostrada corretamente.
 - [ ] Adm é capaz de ver produtos existentes.
 - [ ] Adm é capaz de cadastrar novos produtos.
