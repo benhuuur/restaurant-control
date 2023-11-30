@@ -15,7 +15,7 @@ using Trevisharp.Security.Jwt;
 public class UserController : ControllerBase
 {
     [EnableCors("DefaultPolicy")]
-    [HttpGet]
+    [HttpPost("login")]
     public async Task<IActionResult> Login(
         [FromBody] UserLoginData user,
         [FromServices] IUserService service,
@@ -37,7 +37,7 @@ public class UserController : ControllerBase
     }
 
     [EnableCors("DefaultPolicy")]
-    [HttpPost]
+    [HttpPost("register")]
     public async Task<IActionResult> Create(
         [FromBody] UserCreateData user,
         [FromServices] IUserService service

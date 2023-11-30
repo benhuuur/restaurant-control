@@ -1,7 +1,5 @@
-export interface UserCreateData
+export interface UserLoginData
 {
-    name : string;
-    email : string;
-    cpf : string;
+    login : string;
     password : string;
 }

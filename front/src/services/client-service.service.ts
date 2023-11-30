@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
-import { UserCreateData } from '../dto/user-login-data';
+import { UserCreateData } from '../dto/user-create-data';
 import { ApiClientService } from './api-client.service';
+import { UserLoginData } from '../dto/user-login-data';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClientService {
-  constructor(private http : ApiClientService) {}
+  constructor(private http: ApiClientService) {}
 
-  register(data: UserCreateData, callback: any) 
-  {
-    this.http.post('user', data)
-    .subscribe(response => callback(response))
+  register(data: UserCreateData, callback: any) {
+    this.http
+      .post('user/register', data)
+      .subscribe((response) => callback(response));
+  }
+
+  login(data: UserLoginData, callback: any) {
+    this.http
+      .post('user/login', data)
+      .subscribe((response) => callback(response));
   }
 }
-
-// 44:40

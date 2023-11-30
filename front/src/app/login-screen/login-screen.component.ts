@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ClientService } from '../../services/client-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-screen',
@@ -10,10 +12,21 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './login-screen.component.css',
 })
 export class LoginScreenComponent {
-  username: string = ''
-  password: string = ''
+  constructor(private client: ClientService, private router: Router) {}
 
-  login(){
+
+  username: string = '';
+  password: string = '';
+
+  login() {
+    this.client.login(
+      {
+        login: this.username,
+        password: this.password,
+      },
+      (response: any) => sessionStorage.setItem('jwt', response.jwt)
+    );
+      
 
   }
 }
