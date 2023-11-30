@@ -4,6 +4,9 @@
 }
 
 .button {
-  margin-top: 1rem;
   width: 189px;
+}
+
+.item {
+  margin-top: 1rem;
 }

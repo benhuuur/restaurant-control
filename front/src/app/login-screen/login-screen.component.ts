@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
 export class LoginScreenComponent {
   constructor(private client: ClientService, private router: Router) {}
 
-
   username: string = '';
   password: string = '';
 
@@ -26,7 +25,15 @@ export class LoginScreenComponent {
       },
       (response: any) => sessionStorage.setItem('jwt', response.jwt)
     );
-      
 
+    var obj = sessionStorage.getItem('jwt')?.split('.')[1];
+    if (obj == null) return;
+    obj = atob(obj);
+    var isAdm = JSON.parse(obj).isAdm;
+    if (isAdm) {
+      this.router.navigate(['adm']);
+      return
+    }
+    this.router.navigate(['client']);
   }
 }

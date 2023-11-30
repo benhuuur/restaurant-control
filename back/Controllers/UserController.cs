@@ -25,7 +25,7 @@ public class UserController : ControllerBase
     {
         var logged = await service.GetByLogin(user.Login);
 
-        if (logged.Password == null)
+        if (logged == null)
             return Unauthorized("User not exists");
 
         var password = await security.HashPassword(user.Password, logged.Salt);
