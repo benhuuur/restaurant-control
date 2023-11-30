@@ -1,27 +1,27 @@
 Obs: 'Tem tela/Tem Interface' = Possui parte visual, mesmo sem funcionar.
 
-- [ ] Repositório GIT criado.
-- [ ] Porjeto do Frontend Angular Criado.
-- [ ] Possui tela de Login.
-- [ ] Possui tela de cadastro.
-- [ ] Possui tela de usuário normal das promoções.
+- [x] Repositório GIT criado.
+- [x] Porjeto do Frontend Angular Criado.
+- [x] Possui tela de Login.
+- [x] Possui tela de cadastro.
+- [x] Possui tela de usuário normal das promoções.
 - [ ] Possui tela para visualizar código da promoção.
-- [ ] Possui tela de Administrador.
-- [ ] Possui tela de Pedidos.
-- [ ] Possui tela de Cadastro de Produtos.
-- [ ] Possui tela de Cadastro de Promoções.
-- [ ] Possui tela do totem.
+- [x] Possui tela de Administrador.
+- [x] Possui tela de Pedidos.
+- [x] Possui tela de Cadastro de Produtos.
+- [x] Possui tela de Cadastro de Promoções.
+- [x] Possui tela do totem.
 - [ ] Possui tela dos gráficos.
 - [ ] Tela do totem tem interface para inserção de código da promoção.
 - [ ] Tela do totem tem interface para colocar itens na sacola.
-- [ ] Banco de dados criado com tabelas de Usuário, Pedido, ItemPedido, Produto, Promoção ou similar.
-- [ ] Rotas no Frontend Configuradas.
-- [ ] Projeto Backend C# criado.
-- [ ] CORS Configurado.
-- [ ] HttpClient configurado e podendo ser usado para fazer quests entre Back e Front.
-- [ ] Entity Framework Configurado no Backend e Model gerada.
-- [ ] Bilbioteca de JWT instalada.
-- [ ] Operação de cadastro realmente salva um usuário no banco de dados.
+- [x] Banco de dados criado com tabelas de Usuário, Pedido, ItemPedido, Produto, Promoção ou similar.
+- [x] Rotas no Frontend Configuradas.
+- [x] Projeto Backend C# criado.
+- [x] CORS Configurado.
+- [x] HttpClient configurado e podendo ser usado para fazer quests entre Back e Front.
+- [x] Entity Framework Configurado no Backend e Model gerada.
+- [x] Bilbioteca de JWT instalada.
+- [x] Operação de cadastro realmente salva um usuário no banco de dados.
 - [ ] Cadastro tem algumas validações sendo mais robusto.
 - [ ] Login realmente busca usuário no banco de dados.
 - [ ] Aplica salt na senha do usuário.
