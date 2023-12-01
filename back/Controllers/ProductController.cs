@@ -12,9 +12,13 @@ public class ProductController : ControllerBase
     [EnableCors("DefaultPolicy")]
     [HttpGet("")]
     public async Task<IActionResult> GetProducts(
-        IProductService service
+        [FromServices]IProductService service
     )
     {
-        return Ok(service.GetAllProducts());
+        var products = service.GetAllProducts();
+        // if (products == null){
+
+        // }
+        return Ok(products);
     }
 }

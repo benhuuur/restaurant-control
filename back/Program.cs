@@ -18,6 +18,7 @@ builder.Services.AddSingleton<CryptoService>(p => new(){
     UpdatePeriod = TimeSpan.FromDays(1)
 });
 builder.Services.AddSingleton<ISecurityService, SecurityService>();
+builder.Services.AddTransient<IProductService, ProductService>();
 
 // Cors
 builder.Services.AddCors(options =>
