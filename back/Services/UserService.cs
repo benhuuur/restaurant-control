@@ -10,11 +10,13 @@ public class UserService : IUserService
 {
     RestaurantContext context;
     ISecurityService security;
+
     public UserService(RestaurantContext context, ISecurityService security)
-       {
-            this.context = context;
-            this.security = security;
-       }
+    {
+        this.context = context;
+        this.security = security;
+    }
+
     public async Task Create(UserCreateData data)
     {
         User user = new User();
@@ -22,22 +24,17 @@ public class UserService : IUserService
         user.Name = data.Name;
         user.Email = data.Email;
         user.Cpf = data.Cpf;
-        user.Password = await security.HashPassword(
-            data.Password, salt
-        );
+        user.Password = await security.HashPassword(data.Password, salt);
         user.Salt = salt;
-        
+
         this.context.Add(user);
         await this.context.SaveChangesAsync();
     }
 
     public async Task<User> GetByLogin(string login)
     {
-        var query = 
-            from u in this.context.Users
-            where u.Cpf == login
-            select u;
-        
+        var query = from u in this.context.Users where u.Cpf == login select u;
+
         return await query.FirstOrDefaultAsync();
     }
 }
