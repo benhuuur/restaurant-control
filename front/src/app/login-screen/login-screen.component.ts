@@ -23,17 +23,18 @@ export class LoginScreenComponent {
         login: this.username,
         password: this.password,
       },
-      (response: any) => sessionStorage.setItem('jwt', response.jwt)
+      async (response: any) => {
+        await sessionStorage.setItem('jwt', response.jwt);
+        var obj = response.jwt.split('.')[1];
+        if (obj == null) return;
+        obj = atob(obj);
+        var isAdm = JSON.parse(obj).isAdm;
+        if (isAdm) {
+          this.router.navigate(['adm']);
+          return;
+        }
+        this.router.navigate(['client']);
+      }
     );
-
-    var obj = sessionStorage.getItem('jwt')?.split('.')[1];
-    if (obj == null) return;
-    obj = atob(obj);
-    var isAdm = JSON.parse(obj).isAdm;
-    if (isAdm) {
-      this.router.navigate(['adm']);
-      return
-    }
-    this.router.navigate(['client']);
   }
 }
