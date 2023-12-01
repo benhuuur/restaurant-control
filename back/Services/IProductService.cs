@@ -7,5 +7,5 @@ using DTO;
 using Model;
 
 public interface IProductService {
-    Task<List<Product>> GetAllProducts();
+    Task<List<Product>> GetOffersOff();
 }

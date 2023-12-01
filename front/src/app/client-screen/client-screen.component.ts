@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ClientService } from '../../services/client-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-screen',
@@ -8,4 +10,5 @@ import { CommonModule } from '@angular/common';
   templateUrl: './client-screen.component.html',
   styleUrl: './client-screen.component.css',
 })
-export class ClientScreenComponent {}
+export class ClientScreenComponent {
+}

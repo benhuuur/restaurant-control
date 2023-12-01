@@ -9,18 +9,22 @@ using System;
 public class ProductService : IProductService
 {
     RestaurantContext context;
-
-    public async Task<List<Product>> GetAllProducts()
+    public ProductService(RestaurantContext context)
     {
-        try
-        {
-            var query = from u in this.context.Products select u;
-            Console.WriteLine(query);
+        this.context = context;
+    }
+
+    public async Task<List<Product>> GetOffersOff()
+    {
+        // try
+        // {
+            var query = from p in this.context.Products where p.IsOffers == true select p;
+            // Console.WriteLine( query.GetType());
             return await query.ToListAsync<Product>();
-        }
-        catch (System.NullReferenceException)
-        {
-            return null;
-        }
+        // }
+        // catch (System.NullReferenceException)
+        // {
+        //     return null;
+        // }
     }
 }

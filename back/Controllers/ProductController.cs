@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using back.Services;
 using Microsoft.AspNetCore.Cors;
@@ -15,10 +16,7 @@ public class ProductController : ControllerBase
         [FromServices]IProductService service
     )
     {
-        var products = service.GetAllProducts();
-        // if (products == null){
-
-        // }
-        return Ok(products);
+        var products = await service.GetOffersOff();
+        return Ok(new{products});
     }
 }

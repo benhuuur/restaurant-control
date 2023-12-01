@@ -18,18 +18,17 @@ using System.Text;
 [Route("user")]
 public class UserController : ControllerBase
 {
-    // [EnableCors("DefaultPolicy")]
+    [EnableCors("DefaultPolicy")]
     [HttpPost("client")]
     public async Task<IActionResult> ValidateClient(
         [FromBody] JwtData jwt,
-        [FromServices] ISecurityService security,
         [FromServices] CryptoService crypto
     )
     {
         try
         {
             var data = jwt.data;
-            crypto.Validate<UserLoginData>(data);
+            crypto.Validate<CredentialsData>(data);
             return Accepted(true);
         }
         catch (Trevisharp.Security.Jwt.Exceptions.JwtInvalidSignatureException)
@@ -38,11 +37,11 @@ public class UserController : ControllerBase
         }
         catch (Trevisharp.Security.Jwt.Exceptions.JwtInvalidPayloadException)
         {
-            return Unauthorized("The payload was in the wrong format or was corrupted.");
+            return BadRequest("The payload was in the wrong format or was corrupted.");
         }
         catch (Trevisharp.Security.Jwt.Exceptions.JwtInvalidFormatException)
         {
-            return Unauthorized("The token is not in the required x.y.z format");
+            return BadRequest("The token is not in the required x.y.z format");
         }
     }
 
@@ -50,8 +49,6 @@ public class UserController : ControllerBase
     [HttpPost("adm")]
     public async Task<IActionResult> ValidateAdm(
         [FromBody] JwtData jwt,
-        [FromServices] IUserService service,
-        [FromServices] ISecurityService security,
         [FromServices] CryptoService crypto
     )
     {
