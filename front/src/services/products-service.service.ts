@@ -7,10 +7,14 @@ import { ProductCreateData } from '../dto/product-create-data';
 })
 export class ProductsService {
   constructor(private http: ApiService) {}
-  getProducts(callback: any, type: string = '') {
-    this.http.get('products'+type).subscribe((response: any) => callback(response));
+  getProducts(type: string = '', callback: any) {
+    this.http
+      .get('products' + type)
+      .subscribe((response: any) => callback(response));
   }
-  create(data: ProductCreateData, callback: any){
-    this.http.post('products/register', data).subscribe((response: any) => callback(response));
+  create(data: ProductCreateData, callback: any) {
+    this.http
+      .post('products/register', data)
+      .subscribe((response: any) => callback(response));
   }
 }

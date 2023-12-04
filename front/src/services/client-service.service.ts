@@ -30,4 +30,11 @@ export class ClientService {
       error: (error) => callbackError(error)
     })
   }
+  validateAdm(data: JwtData, callback: any, callbackError: any = null) {
+    this.http.post('user/client', data)
+    .subscribe({
+      next: (response) => callback(response),
+      error: (error) => callbackError(error)
+    })
+  }
 }

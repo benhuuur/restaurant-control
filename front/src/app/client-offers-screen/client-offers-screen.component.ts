@@ -30,7 +30,7 @@ export class ClientOffersScreenComponent implements OnInit {
         this.router.navigate(['']);
       }
     );
-    this.service.getProducts((response: any) => {
+    this.service.getProducts('offers',(response: any) => {
       this.products = response.products;
     });
   }

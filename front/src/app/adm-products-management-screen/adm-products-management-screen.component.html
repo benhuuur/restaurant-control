@@ -14,12 +14,13 @@
       Cadastrar Produto
     </button>
   </div>
+  @for (product of products; track products.length) {
   <div class="card" style="width: 18rem">
     <img src="../../assets/pastel-carne.webp" class="card-img-top" alt="..." />
     <div class="card-body">
-      <h5 class="card-title">Pastel de ...</h5>
-      <p class="card-text">Pastel de ...</p>
-      <h5 class="card-title">R$ 12,90</h5>
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+      <h5 class="card-title">{{ product.price }}</h5>
       <button class="button">Deletar</button>
       <button
         type="button"
@@ -31,6 +32,7 @@
       </button>
     </div>
   </div>
+  }
 </div>
 
 <!-- Modal new-poduct -->
@@ -54,13 +56,23 @@
       <div class="modal-body">
         <div class="d-flex flex-column">
           <label for="name">Nome:</label>
-          <input type="text" name="name" id="" [(ngModel)]="newProduct.name"/>
+          <input type="text" name="name" id="" [(ngModel)]="newProduct.name" />
           <label for="description">Descrição:</label>
-          <input type="text" name="description" id="" [(ngModel)]="newProduct.description"/>
+          <input
+            type="text"
+            name="description"
+            id=""
+            [(ngModel)]="newProduct.description"
+          />
           <label for="price">Preço:</label>
-          <input type="text" name="price" id="" [(ngModel)]="newProduct.price"/>
+          <input
+            type="text"
+            name="price"
+            id=""
+            [(ngModel)]="newProduct.price"
+          />
           <label for="type">Tipo:</label>
-          <input type="text" name="type" id="" [(ngModel)]="newProduct.type"/>
+          <input type="text" name="type" id="" [(ngModel)]="newProduct.type" />
           <label for="picture">Foto:</label>
           <!-- <input type="file" name="picture" id="" [(ngModel)]="newProduct.picture"/> -->
         </div>
@@ -69,7 +81,14 @@
         <button type="button" class="button" data-bs-dismiss="modal">
           Close
         </button>
-        <button type="button" class="button" (click)="create()" data-bs-dismiss="modal">Save changes</button>
+        <button
+          type="button"
+          class="button"
+          (click)="create()"
+          data-bs-dismiss="modal"
+        >
+          Save changes
+        </button>
       </div>
     </div>
   </div>
