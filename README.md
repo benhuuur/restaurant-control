@@ -28,7 +28,7 @@ Obs: 'Tem tela/Tem Interface' = Possui parte visual, mesmo sem funcionar.
 - [x] Aplica slow Hash na senha do usuário.
 - [x] Login retorna JWT para o frontend que o guarda no Sessin Storage.
 - [x] Após o Login a página de usuário normal ou adm é mostrada corretamente.
-- [ ] Adm é capaz de ver produtos existentes.
+- [x] Adm é capaz de ver produtos existentes.
 - [ ] Adm é capaz de cadastrar novos produtos.
 - [ ] Adm é capaz de ver promoções existentes.
 - [ ] Adm é capaz de criar novas promoções.
