@@ -19,9 +19,5 @@ public partial class Product
 
     public bool IsOffers { get; set; }
 
-    public int Picture { get; set; }
-
-    public virtual Image PictureNavigation { get; set; }
-
     public virtual ICollection<ProductsRequest> ProductsRequests { get; set; } = new List<ProductsRequest>();
 }

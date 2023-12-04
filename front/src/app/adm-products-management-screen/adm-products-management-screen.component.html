@@ -62,14 +62,14 @@
           <label for="type">Tipo:</label>
           <input type="text" name="type" id="" [(ngModel)]="newProduct.type"/>
           <label for="picture">Foto:</label>
-          <input type="file" name="picture" id="" [(ngModel)]="newProduct.picture"/>
+          <!-- <input type="file" name="picture" id="" [(ngModel)]="newProduct.picture"/> -->
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="button" data-bs-dismiss="modal">
           Close
         </button>
-        <button type="button" class="button" (click)="create()">Save changes</button>
+        <button type="button" class="button" (click)="create()" data-bs-dismiss="modal">Save changes</button>
       </div>
     </div>
   </div>

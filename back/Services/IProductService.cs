@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using DTO;
 using Model;
 
-public interface IProductService {
-    Task<List<Product>> GetOffersOff();
+public interface IProductService
+{
+    Task<List<Product>> GetProducts();
+    Task Create(ProductCreateData data);
 }

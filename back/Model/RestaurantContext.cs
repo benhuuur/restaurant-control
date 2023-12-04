@@ -33,7 +33,7 @@ public partial class RestaurantContext : DbContext
     {
         modelBuilder.Entity<Image>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Images__3214EC2753409012");
+            entity.HasKey(e => e.Id).HasName("PK__Images__3214EC27BC5B24FA");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Picture).IsRequired();
@@ -41,7 +41,7 @@ public partial class RestaurantContext : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC27124CFC8F");
+            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC27B37B74EE");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Description)
@@ -52,16 +52,11 @@ public partial class RestaurantContext : DbContext
                 .IsRequired()
                 .HasMaxLength(100)
                 .IsUnicode(false);
-
-            entity.HasOne(d => d.PictureNavigation).WithMany(p => p.Products)
-                .HasForeignKey(d => d.Picture)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Products__Pictur__3E52440B");
         });
 
         modelBuilder.Entity<ProductsRequest>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC27C228CFBD");
+            entity.HasKey(e => e.Id).HasName("PK__Products__3214EC271BBDCE9A");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
@@ -70,17 +65,17 @@ public partial class RestaurantContext : DbContext
             entity.HasOne(d => d.Product).WithMany(p => p.ProductsRequests)
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProductsR__Produ__412EB0B6");
+                .HasConstraintName("FK__ProductsR__Produ__403A8C7D");
 
             entity.HasOne(d => d.Request).WithMany(p => p.ProductsRequests)
                 .HasForeignKey(d => d.RequestId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProductsR__Reque__4222D4EF");
+                .HasConstraintName("FK__ProductsR__Reque__412EB0B6");
         });
 
         modelBuilder.Entity<Request>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Requests__3214EC274D35E879");
+            entity.HasKey(e => e.Id).HasName("PK__Requests__3214EC27867B11F9");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.UserId).HasColumnName("UserID");
@@ -93,7 +88,7 @@ public partial class RestaurantContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC2787CBB06E");
+            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC27F07D266A");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Cpf)

@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using back.Services;
+using DTO;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +17,18 @@ public class ProductController : ControllerBase
         [FromServices]IProductService service
     )
     {
-        var products = await service.GetOffersOff();
+        var products = await service.GetProducts();
         return Ok(new{products});
+    }
+
+    [EnableCors("DefaultPolicy")]
+    [HttpPost("register")]
+    public async Task<IActionResult> Create(
+         [FromBody] ProductCreateData product,
+        [FromServices] IProductService service
+    )
+    {
+        await service.Create(product);
+        return Ok(new { message = true });
     }
 }

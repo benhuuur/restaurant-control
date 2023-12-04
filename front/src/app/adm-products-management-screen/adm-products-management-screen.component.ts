@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ProductData } from '../../dto/product-data';
-
+import { ProductCreateData } from '../../dto/product-create-data'; 
+import { ProductsService } from '../../services/products-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-adm-products-management-screen',
   standalone: true,
@@ -11,17 +12,16 @@ import { ProductData } from '../../dto/product-data';
   styleUrl: './adm-products-management-screen.component.css'
 })
 export class AdmProductsManagementScreenComponent {
-  newProduct : ProductData = {
+  constructor(private product: ProductsService, private router: Router){}
+  newProduct : ProductCreateData = {
     name: '',
     description: '',
     type: '',
     price: 0,
-    offersPrice: 0,
-    isOffers: false,
-    picture: 0
+    // picture: 0
   }
 
   create(){
-    
+    this.product.create(this.newProduct, (response: any) => console.log(response));
   }
 }

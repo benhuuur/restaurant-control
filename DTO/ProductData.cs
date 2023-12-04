@@ -6,6 +6,4 @@ public class ProductData {
     int type;
     float price;
     bool isOffers;
-
-
 }

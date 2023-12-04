@@ -6,7 +6,6 @@ import { AdmRequestsScreenComponent } from './adm-requests-screen/adm-requests-s
 import { AdmDashboardScreenComponent } from './adm-dashboard-screen/adm-dashboard-screen.component';
 import { AdmProductsManagementScreenComponent } from './adm-products-management-screen/adm-products-management-screen.component';
 import { RegisterScreenComponent } from './register-screen/register-screen.component';
-import { ClientProductsScreenComponent } from './client-products-screen/client-products-screen.component';
 import { ClientOffersScreenComponent } from './client-offers-screen/client-offers-screen.component';
 import { ClientScreenComponent } from './client-screen/client-screen.component';
 import { AdmTotemProductsScrceenComponent } from './adm-totem-products-scrceen/adm-totem-products-scrceen.component';
@@ -51,9 +50,7 @@ export const routes: Routes = [
   {
     path: 'client',
     children: [
-      { path: '', component: ClientScreenComponent },
-      { path: 'products', component: ClientProductsScreenComponent },
-      { path: 'offers', component: ClientOffersScreenComponent },
+      { path: '', component: ClientOffersScreenComponent },
     ],
   },
   {
