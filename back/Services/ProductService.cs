@@ -27,4 +27,7 @@ public class ProductService : IProductService
         //     return null;
         // }
     }
+    public async Task Create(){
+
+    }
 }
