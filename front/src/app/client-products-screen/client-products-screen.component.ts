@@ -14,6 +14,9 @@ import { ProductsService } from '../../services/products-service.service';
 })
 export class ClientProductsScreenComponent implements OnInit {
   constructor(private service: ProductsService, private client: ClientService, private router: Router) {}
+
+  products : object | undefined;
+
   ngOnInit(): void {
     this.client.validateClient(
       { data: sessionStorage.getItem('jwt') },
@@ -24,7 +27,7 @@ export class ClientProductsScreenComponent implements OnInit {
     }
     );
     this.service.getProducts((response:any) => {
-      console.log(typeof(response.products))
+      this.products = response.products
     })
   }
 }

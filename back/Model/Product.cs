@@ -11,6 +11,8 @@ public partial class Product
 
     public string Description { get; set; }
 
+    public int Type { get; set; }
+
     public double Price { get; set; }
 
     public double? OffersPrice { get; set; }

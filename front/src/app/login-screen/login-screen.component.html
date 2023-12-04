@@ -1,12 +1,19 @@
 <div
   class="container d-flex flex-column justify-content-center align-items-center"
 >
-  <div class="d-flex flex-column">
-    <label for="username">Cpf:</label>
-    <input type="text" name="username" id="" [(ngModel)]="username" />
-    <label for="password">Senha:</label>
-    <input type="password" name="password" id="" [(ngModel)]="password"/>
-    <button class="button item" (click)="login()">Logar</button>
-    <a href="/register" class="item"><button class="button">Cadastrar</button></a>
+  <div class="content shadow">
+    <img src="../../assets/capi.png" class="img-fluid" alt="" />
+    <div class="d-flex flex-column mg">
+      <label class="input-label" for="username">Cpf:</label>
+      <input type="text" class="form-input" name="username" id="" [(ngModel)]="username" />
+      <label class="input-label" for="password">Senha:</label>
+      <input type="password" class="form-input" name="password" id="" [(ngModel)]="password" />
+      <div class="align-items-center d-flex flex-column">
+        <button class="button item" (click)="login()"><span class="button-text">Logar</span></button>
+        <a href="/register" class="item"
+          ><span class="text">Cadastrar</span></a
+        >
+      </div>
+    </div>
   </div>
 </div>

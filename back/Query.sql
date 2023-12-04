@@ -40,6 +40,7 @@ create table Products(
 	ID int identity primary key,
 	Name varchar(100) not null,
 	Description varchar(150) not null,
+	Type int not null,
 	Price float not null,
 	OffersPrice float,
 	IsOffers bit not null,
