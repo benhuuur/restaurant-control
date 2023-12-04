@@ -6,7 +6,7 @@ import { ApiService } from './api.service';
 })
 export class ProductsService {
   constructor(private http: ApiService) {}
-  getProducts(callback: any) {
-    this.http.get('products').subscribe((response: any) => callback(response));
+  getProducts(callback: any, type: string = '') {
+    this.http.get('products'+type).subscribe((response: any) => callback(response));
   }
 }

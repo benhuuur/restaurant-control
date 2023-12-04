@@ -4,6 +4,7 @@ import { ClientScreenComponent } from '../client-screen/client-screen.component'
 import { Router } from '@angular/router';
 import { ClientService } from '../../services/client-service.service';
 import { ProductsService } from '../../services/products-service.service';
+import { ProductData } from '../../dto/product-data';
 
 @Component({
   selector: 'app-client-products-screen',
@@ -15,7 +16,7 @@ import { ProductsService } from '../../services/products-service.service';
 export class ClientProductsScreenComponent implements OnInit {
   constructor(private service: ProductsService, private client: ClientService, private router: Router) {}
 
-  products : object | undefined;
+  products : ProductData[] = [];
 
   ngOnInit(): void {
     this.client.validateClient(
