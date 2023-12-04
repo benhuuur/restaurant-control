@@ -12,6 +12,29 @@
   border-radius: 10px 10px 0px 0px;
 }
 
+.mg {
+  margin: 20px;
+}
+
+.input-label {
+  color: rgba(0, 0, 0, 0.336);
+  font-size: larger;
+}
+
+.form-input {
+  transition: 1s;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  height: 48px;
+  font-size: 19px;
+  outline-color: transparent;
+}
+
+.form-input:focus {
+  transition: 0.8s;
+  outline-color: rgb(83, 192, 255);
+}
+
 .button {
   width: 189px;
   background: rgb(92, 194, 255);
@@ -35,31 +58,13 @@
   text-decoration: none;
 }
 
-.form-input {
-  transition: 1s;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  height: 48px;
-  font-size: 19px;
-  outline-color: transparent;
-}
-
-.input-label {
-  color: rgba(0, 0, 0, 0.336);
-  font-size: larger;
-}
-
-.form-input:focus {
-  transition: 0.8s;
-  outline-color: rgb(83, 192, 255);
-}
-.mg {
-  margin: 20px;
-}
-
 .text {
   font-size: 25px;
-  background: -webkit-linear-gradient(90deg, rgba(92,194,255,1) 0%, rgba(85,195,218,1) 100%);
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(92, 194, 255, 1) 0%,
+    rgba(85, 195, 218, 1) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

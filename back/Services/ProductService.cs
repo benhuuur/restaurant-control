@@ -24,8 +24,8 @@ public class ProductService : IProductService
         return await query.ToListAsync<Product>();
     }
 
-    public async Task Create(ProductCreateData data) 
-    { 
+    public async Task Create(ProductCreateData data)
+    {
         Product product = new Product();
         product.Name = data.name;
         product.Description = data.description;
@@ -37,5 +37,11 @@ public class ProductService : IProductService
 
         this.context.Add(product);
         await this.context.SaveChangesAsync();
+    }
+
+    public async Task DeleteById(int Id)
+    {
+        var query = from p in this.context.Products where p.Id == Id select p;
+        this.context.Remove(query);
     }
 }

@@ -45,7 +45,7 @@ export class AdmProductsManagementScreenComponent {
 
   create() {
     this.product.create(this.newProduct, (response: any) =>
-      console.log(response)
+      this.ngOnInit()
     );
   }
 }

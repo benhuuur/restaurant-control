@@ -31,4 +31,15 @@ public class ProductController : ControllerBase
         await service.Create(product);
         return Ok(new { message = true });
     }
+    
+    [EnableCors("DefaultPolicy")]
+    [HttpPost("delete")]
+    public async Task<IActionResult> Delete(
+         [FromBody] ProductData product,
+        [FromServices] IProductService service
+    )
+    {
+        await service.DeleteById(product.id);
+        return Ok(new { message = true });
+    }
 }

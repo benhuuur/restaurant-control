@@ -1,20 +1,50 @@
 <div
   class="container d-flex flex-column justify-content-center align-items-center"
 >
-  <div class="d-flex flex-column">
-    <label for="name">Nome:</label>
-    <input type="text" name="name" id="" [(ngModel)]="name"/>
-    <label for="email">Email:</label>
-    <input type="text" name="email" id="" [(ngModel)]="email"/>
-    <label for="password">Senha:</label>
-    <input type="password" name="password" id="" [(ngModel)]="password"/>
-    <label for="repeat-password">Repetir Senha:</label>
-    <input type="password" name="repeat-password" id="" [(ngModel)]="repeatPassword"/>
-    <span [ngClass]="validatePassword">As senhas não são iguais</span>
-    <label for="cpf">Cpf:</label>
-    <input type="text" name="cpf" [(ngModel)]="cpf"/>
-    <span [ngClass]="validateCpf">Cpf inválido</span>
-    <button class="button" (click)="create()">Cadastrar</button>
-    <a href="/"><button class="button">Cancelar</button></a>
+  <div class="content shadow">
+    <div class="d-flex flex-column mg">
+      <label class="input-label" for="name">Nome:</label>
+      <input
+        class="form-input"
+        type="text"
+        name="name"
+        id=""
+        [(ngModel)]="name"
+      />
+      <label class="input-label" for="email">Email:</label>
+      <input
+        class="form-input"
+        type="text"
+        name="email"
+        id=""
+        [(ngModel)]="email"
+      />
+      <label class="input-label" for="password">Senha:</label>
+      <input
+        class="form-input"
+        type="password"
+        name="password"
+        id=""
+        [(ngModel)]="password"
+      />
+      <label class="input-label" for="repeat-password">Repetir Senha:</label>
+      <input
+        class="form-input"
+        type="password"
+        name="repeat-password"
+        id=""
+        [(ngModel)]="repeatPassword"
+      />
+      <span [ngClass]="validatePassword">As senhas não são iguais</span>
+      <label class="input-label" for="cpf">Cpf:</label>
+      <input class="form-input" type="text" name="cpf" [(ngModel)]="cpf" />
+      <span [ngClass]="validateCpf">Cpf inválido</span>
+      <div class="align-items-center d-flex flex-column">
+        <button class="button" (click)="create()">
+          <span class="button-text">Cadastrar</span>
+        </button>
+        <a href="/" class="item"><span class="text">Cancelar</span></a>
+      </div>
+    </div>
   </div>
 </div>
