@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using DTO;
 
-public class ProductService : IProductService
+public class ProductService : IImageService
 {
     RestaurantContext context;
 
@@ -39,9 +39,9 @@ public class ProductService : IProductService
         await this.context.SaveChangesAsync();
     }
 
-    public async Task DeleteById(int Id)
-    {
-        var query = from p in this.context.Products where p.Id == Id select p;
-        this.context.Remove(query);
-    }
+    // public async Task DeleteById(int Id)
+    // {
+    //     var query = from p in this.context.Products where p.Id == Id select p;
+    //     this.context.Remove(query);
+    // }
 }

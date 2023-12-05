@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using DTO;
 using Model;
 
-public interface IProductService
+public interface IImageService
 {
     Task<List<Product>> GetProducts();
     Task Create(ProductCreateData data);
-    Task DeleteById(int Id);
+    // Task DeleteById(int Id);
 }

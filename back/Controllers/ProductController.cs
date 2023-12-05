@@ -14,7 +14,7 @@ public class ProductController : ControllerBase
     [EnableCors("DefaultPolicy")]
     [HttpGet("")]
     public async Task<IActionResult> GetProducts(
-        [FromServices]IProductService service
+        [FromServices]IImageService service
     )
     {
         var products = await service.GetProducts();
@@ -25,21 +25,21 @@ public class ProductController : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> Create(
          [FromBody] ProductCreateData product,
-        [FromServices] IProductService service
+        [FromServices] IImageService service
     )
     {
         await service.Create(product);
         return Ok(new { message = true });
     }
-    
-    [EnableCors("DefaultPolicy")]
-    [HttpPost("delete")]
-    public async Task<IActionResult> Delete(
-         [FromBody] ProductData product,
-        [FromServices] IProductService service
-    )
-    {
-        await service.DeleteById(product.id);
-        return Ok(new { message = true });
-    }
 }
+
+    // [EnableCors("DefaultPolicy")]
+    // [HttpPost("delete")]
+    // public async Task<IActionResult> Delete(
+    //      [FromBody] ProductData product,
+    //     [FromServices] IProductService service
+    // )
+    // {
+    //     await service.DeleteById(product.id);
+    //     return Ok(new { message = true });
+    // }

@@ -14,25 +14,31 @@
       Cadastrar Produto
     </button>
   </div>
-  @for (product of products; track products.length) {
-  <div class="card" style="width: 18rem">
-    <img src="../../assets/pastel-carne.webp" class="card-img-top" alt="..." />
-    <div class="card-body">
-      <h5 class="card-title">{{ product.name }}</h5>
-      <p class="card-text">{{ product.description }}</p>
-      <h5 class="card-title">{{ product.price }}</h5>
-      <button class="button">Deletar</button>
-      <button
-        type="button"
-        class="button"
-        data-bs-toggle="modal"
-        data-bs-target="#offersModal"
-      >
-        Promoção
-      </button>
+  <div class="d-flex flex-wrap justify-content-center align-items-center">
+    @for (product of products; track products.length) {
+    <div class="card" style="width: 18rem">
+      <img
+        src="../../assets/pastel-carne.webp"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <h5 class="card-title">{{ product.price }}</h5>
+        <button class="button">Deletar</button>
+        <button
+          type="button"
+          class="button"
+          data-bs-toggle="modal"
+          data-bs-target="#offersModal"
+        >
+          Promoção
+        </button>
+      </div>
     </div>
+    }
   </div>
-  }
 </div>
 
 <!-- Modal new-poduct -->
