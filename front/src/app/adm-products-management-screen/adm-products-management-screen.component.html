@@ -18,7 +18,7 @@
     @for (product of products; track products.length) {
     <div class="card" style="width: 18rem">
       <img
-        src="../../assets/pastel-carne.webp"
+        src="{{'http://localhost:5166/image?photoid='+product.picture}}"
         class="card-img-top"
         alt="..."
       />
@@ -80,7 +80,7 @@
           <label for="type">Tipo:</label>
           <input type="text" name="type" id="" [(ngModel)]="newProduct.type" />
           <label for="picture">Foto:</label>
-          <!-- <input type="file" name="picture" id="" [(ngModel)]="newProduct.picture"/> -->
+          <input type="file" #file name="picture" id="" (change)="uploadFile(file.files)"/>
         </div>
       </div>
       <div class="modal-footer">

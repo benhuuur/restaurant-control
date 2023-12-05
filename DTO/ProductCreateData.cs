@@ -6,5 +6,5 @@ public class ProductCreateData
     public string description { get; set; }
     public int type { get; set; }
     public float price { get; set; }
-    // public int picture { get; set; }
+    public int picture { get; set; }
 }

@@ -16,4 +16,8 @@ export class ApiService {
   get(url: string) {
     return this.http.get(this.backend + url)
   }
+
+  put(url: string, data: any) {
+    return this.http.put(this.backend + url, data)
+  }
 }

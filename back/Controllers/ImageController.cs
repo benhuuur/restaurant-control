@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Model;
 using Services;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 [ApiController]
 [Route("image")]
@@ -30,11 +32,23 @@ public class ImageController : ControllerBase
         var data = ms.GetBuffer();
         Image img = new Image();
         img.Picture = data;
-        
+
         RestaurantContext context = new RestaurantContext();
         context.Add(img);
         await context.SaveChangesAsync();
 
         return Ok(new { id = img.Id });
+    }
+
+    [HttpGet("")]
+    [EnableCors("DefaultPolicy")]
+    public async Task<IActionResult> GetImage(int photoId)
+    {
+        RestaurantContext context = new RestaurantContext();
+        var query = from image in context.Images where image.Id == photoId select image;
+        var img = await query.FirstOrDefaultAsync();
+        if (img is null)
+            return NotFound();
+        return File(img.Picture, "image/jpeg");
     }
 }

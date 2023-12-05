@@ -31,7 +31,7 @@ public class ProductService : IImageService
         product.Description = data.description;
         product.Type = data.type;
         product.Price = data.price;
-        // product.Picture = data.picture;
+        product.Picture = data.picture;
         product.OffersPrice = null;
         product.IsOffers = false;
 

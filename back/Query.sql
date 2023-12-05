@@ -44,7 +44,7 @@ create table Products(
 	Price float not null,
 	OffersPrice float,
 	IsOffers bit not null,
-	-- Picture int references Images(ID) not null
+	Picture int references Images(ID) not null
 );
 go
 
