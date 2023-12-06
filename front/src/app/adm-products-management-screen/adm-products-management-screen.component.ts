@@ -25,13 +25,13 @@ export class AdmProductsManagementScreenComponent {
   products: ProductData[] = [];
 
   ngOnInit(): void {
-    // this.client.validateAdm(
-    //   { data: sessionStorage.getItem('jwt') },
-    //   (response: any) => {},
-    //   (error: any) => {
-    //     this.router.navigate(['']);
-    //   }
-    // );
+    this.client.validateAdm(
+      { data: sessionStorage.getItem('jwt') },
+      (response: any) => {},
+      (error: any) => {
+        this.router.navigate(['']);
+      }
+    );
     this.product.getProducts('', (response: any) => {
       this.products = response.products;
     });
