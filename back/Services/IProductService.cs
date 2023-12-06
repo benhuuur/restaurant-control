@@ -9,6 +9,9 @@ using Model;
 public interface IImageService
 {
     Task<List<Product>> GetProducts();
+    Task<List<Product>> GetSavory(); 
+    Task<List<Product>> GetCandies(); 
+    Task<List<Product>> GetDrinks(); 
     Task Create(ProductCreateData data);
     // Task DeleteById(int Id);
 }

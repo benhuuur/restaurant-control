@@ -5,5 +5,19 @@
 
 .button {
   margin-top: 1rem;
-  width: 10rem;
+  width: 17rem;
+  background: rgb(92, 194, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(92, 194, 255, 1) 0%,
+    rgba(69, 218, 250, 1) 100%
+  );
+  border-radius: 5px;
+  border-style: none;
+}
+
+.button-text {
+  font-size: 25px;
+  font-weight: bolder;
+  color: white;
 }

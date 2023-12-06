@@ -20,6 +20,16 @@ public class ProductController : ControllerBase
         var products = await service.GetProducts();
         return Ok(new{products});
     }
+    
+    [EnableCors("DefaultPolicy")]
+    [HttpGet("salgados")]
+    public async Task<IActionResult> GetSavory (
+        [FromServices]IImageService service
+    )
+    {
+        var products = await service.GetProducts();
+        return Ok(new{products});
+    }
 
     [EnableCors("DefaultPolicy")]
     [HttpPost("register")]

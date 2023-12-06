@@ -18,10 +18,7 @@ public class ProductService : IImageService
 
     public async Task<List<Product>> GetProducts()
     {
-        // var query = from p in this.context.Products select p;
-        // return await query.ToListAsync<Product>();
-        var query = this.context.Products;
-        return await query.ToListAsync<Product>();
+        return await this.context.Products.ToListAsync<Product>();
     }
 
     public async Task Create(ProductCreateData data)
@@ -31,7 +28,7 @@ public class ProductService : IImageService
         product.Description = data.description;
         product.Type = data.type;
         product.Price = data.price;
-        product.Picture = data.picture;
+        // product.Picture = data.picture;
         product.OffersPrice = null;
         product.IsOffers = false;
 

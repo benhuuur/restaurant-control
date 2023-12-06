@@ -25,13 +25,13 @@ export class AdmProductsManagementScreenComponent {
   products: ProductData[] = [];
 
   ngOnInit(): void {
-    // this.client.validateAdm(
-    //   { data: sessionStorage.getItem('jwt') },
-    //   (response: any) => {},
-    //   (error: any) => {
-    //     this.router.navigate(['']);
-    //   }
-    // );
+    this.client.validateAdm(
+      { data: sessionStorage.getItem('jwt') },
+      (response: any) => {},
+      (error: any) => {
+        this.router.navigate(['']);
+      }
+    );
     this.product.getProducts('', (response: any) => {
       this.products = response.products;
     });
@@ -44,29 +44,31 @@ export class AdmProductsManagementScreenComponent {
     description: '',
     type: '',
     price: null,
-    picture: null,
+    // picture: null,
   };
 
-  create() {
-    this.addImage(this.img);
-    this.product.create(this.newProduct, (response: any) => this.ngOnInit());
+  async create() {
+    // await this.addImage(this.img);
+    console.log(this.newProduct);
+    this.product.create(this.newProduct, (response: any) =>
+      window.location.reload()
+    );
   }
 
-  addImage = (files: any) => {
-    if (files.length === 0) {
-      return;
-    }
-    let fileToUpload = <File>files[0];
-    const formData = new FormData();
-    formData.append('file', fileToUpload, fileToUpload.name);
+  // addImage = async (files: any) => {
+  //   if (files.length === 0) {
+  //     return;
+  //   }
+  //   let fileToUpload = <File>files[0];
+  //   const formData = new FormData();
+  //   formData.append('file', fileToUpload, fileToUpload.name);
 
-    this.image.add(formData, (response: any) => {
-      this.newProduct.picture = response.id;
-      console.log(this.newProduct.picture);
-    });
-  };
+  //   this.image.add(formData, (response: any) => {
+  //     this.newProduct.picture = response.id;
+  //   });
+  // };
 
-  async uploadFile(files: any) {
-    this.img = files;
-  }
+  // async uploadFile(files: any) {
+  //   this.img = files;
+  // }
 }

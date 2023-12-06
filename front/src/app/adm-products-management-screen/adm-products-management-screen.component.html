@@ -18,14 +18,15 @@
     @for (product of products; track products.length) {
     <div class="card" style="width: 18rem">
       <img
-        src="{{'http://localhost:5166/image?photoid='+product.picture}}"
+        src=""
         class="card-img-top"
         alt="..."
-      />
+        />
+        <!-- {{'http://localhost:5166/image?photoid='+product.picture}} -->
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">{{ product.description }}</p>
-        <h5 class="card-title">{{ product.price }}</h5>
+        <h5 class="card-title">R$ {{ product.price }}</h5>
         <button class="button">Deletar</button>
         <button
           type="button"
@@ -78,9 +79,13 @@
             [(ngModel)]="newProduct.price"
           />
           <label for="type">Tipo:</label>
-          <input type="text" name="type" id="" [(ngModel)]="newProduct.type" />
+          <select name="" id="" [(ngModel)]="newProduct.type" >
+            <option value="Salgado">Salgado</option>
+            <option value="Doce">Doce</option>
+            <option value="Bebida">Bebida</option>
+          </select>
           <label for="picture">Foto:</label>
-          <input type="file" #file name="picture" id="" (change)="uploadFile(file.files)"/>
+          <!-- <input type="file" #file name="picture" id="" (change)="uploadFile(file.files)"/> -->
         </div>
       </div>
       <div class="modal-footer">

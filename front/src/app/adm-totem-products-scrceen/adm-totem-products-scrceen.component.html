@@ -1,11 +1,29 @@
 <app-adm-totem-screen>
+  <div>
+    <select name="" id="" (change)="getType($event)">
+      <option value="" selected></option>
+      <option value="Salgados">Salgados</option>
+      <option value="Doces">Doces</option>
+      <option value="Bebidas">Bebidas</option>
+    </select>
+  </div>
+  <div class="d-flex flex-wrap justify-content-center align-items-center">
+    @for (product of products; track products.length) {
     <div class="card" style="width: 18rem">
-        <img src="../../assets/pastel-carne.webp" class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Pastel de ...</h5>
-          <p class="card-text">Pastel de ...</p>
-          <h5 class="card-title">R$ 12,90</h5>
-          <button class="button">Adicionar ao Carrinho</button>
-        </div>
+      <img
+        src="../../assets/pastel-carne.webp"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <h5 class="card-title">R$ {{ product.price }}</h5>
+        <button (click)="addToCart(product)" class="button">
+          Adicionar ao Carrinho
+        </button>
       </div>
+    </div>
+    }
+  </div>
 </app-adm-totem-screen>

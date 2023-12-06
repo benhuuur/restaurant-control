@@ -6,5 +6,5 @@ export interface ProductData {
     price : number;
     offersPrice : number;
     isOffers : boolean;
-    picture : number
+    // picture : number
 }

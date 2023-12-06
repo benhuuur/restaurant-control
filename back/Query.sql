@@ -40,11 +40,11 @@ create table Products(
 	ID int identity primary key,
 	Name varchar(100) not null,
 	Description varchar(150) not null,
-	Type int not null,
+	Type varchar(100) not null,
 	Price float not null,
 	OffersPrice float,
 	IsOffers bit not null,
-	Picture int references Images(ID) not null
+	-- Picture int references Images(ID) not null
 );
 go
 
@@ -68,3 +68,6 @@ go
 -- go
 -- INSERT INTO Users (Name, Email, Cpf, IsAdm, Password, Salt)
 -- VALUES ('Benhur Feld', 'benhurfeld@gmail.com', '10100272983', 1, 'ehKTRxz8cujBzOmJHfjKZjpkP9M8za3nBF/y2mpWIqE=', 'gYm4Oz/UEEWVzpKE9uGZVWp5V3xvOZxf');
+
+-- select * from Images
+select * from Products
