@@ -56,6 +56,10 @@ create table ProductsRequests(
 );
 go
 
+INSERT INTO Users (Name, Email, Cpf, IsAdm, Password, Salt)
+VALUES ('Benhur Feld', 'benhurfeld@gmail.com', '10100272983', 1, 'ehKTRxz8cujBzOmJHfjKZjpkP9M8za3nBF/y2mpWIqE=', 'gYm4Oz/UEEWVzpKE9uGZVWp5V3xvOZxf');
+go
+
 -- .\createModel.ps1 CT-C-001P5\SQLEXPRESS restaurant   
 
 -- use master 

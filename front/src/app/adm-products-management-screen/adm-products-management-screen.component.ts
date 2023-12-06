@@ -25,13 +25,13 @@ export class AdmProductsManagementScreenComponent {
   products: ProductData[] = [];
 
   ngOnInit(): void {
-    this.client.validateAdm(
-      { data: sessionStorage.getItem('jwt') },
-      (response: any) => {},
-      (error: any) => {
-        this.router.navigate(['']);
-      }
-    );
+    // this.client.validateAdm(
+    //   { data: sessionStorage.getItem('jwt') },
+    //   (response: any) => {},
+    //   (error: any) => {
+    //     this.router.navigate(['']);
+    //   }
+    // );
     this.product.getProducts('', (response: any) => {
       this.products = response.products;
     });
@@ -61,12 +61,12 @@ export class AdmProductsManagementScreenComponent {
     formData.append('file', fileToUpload, fileToUpload.name);
 
     this.image.add(formData, (response: any) => {
-      console.log(response.id);
       this.newProduct.picture = response.id;
+      console.log(this.newProduct.picture);
     });
   };
 
-  uploadFile(files: any) {
+  async uploadFile(files: any) {
     this.img = files;
   }
 }
