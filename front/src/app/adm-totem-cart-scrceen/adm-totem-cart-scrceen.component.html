@@ -16,7 +16,7 @@
         <td>{{item.product.name}}</td>
         <td>{{item.product.type}}</td>
         <td>{{item.quantity}}</td>
-        <td>{{item.total}}</td>
+        <td>{{round(item.total)}}</td>
       </tr>
       }
       <tr>
@@ -24,7 +24,7 @@
           total do carrinho: 
         </td>
         <td>
-          {{total}}
+          {{round(total)}}
         </td>
       </tr>
     </tbody>

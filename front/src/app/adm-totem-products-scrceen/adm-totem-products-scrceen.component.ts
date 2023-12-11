@@ -22,7 +22,7 @@ export class AdmTotemProductsScrceenComponent {
     private client: ClientService,
     private image: ImageService
   ) {}
-
+  types: String[] = ['Todos', 'Salgados', 'Doces', 'Bebidas'];
   products: ProductData[] = [];
   cart: CartData[] = [];
   ngOnInit(): void {
@@ -33,9 +33,21 @@ export class AdmTotemProductsScrceenComponent {
         this.router.navigate(['']);
       }
     );
-    this.product.getProducts('', (response: any) => {
-      this.products = response.products;
-    });
+    var localStorageProducts = localStorage.getItem('type');
+    if (
+      localStorageProducts == null ||
+      JSON.parse(localStorageProducts)[0] == 'Todos'
+    )
+      this.product.getProducts('', (response: any) => {
+        this.products = response.products;
+      });
+    else {
+      this.types = JSON.parse(localStorageProducts);
+      this.product.getProducts('/' + this.types[0], (response: any) => {
+        this.products = response.products;
+      });
+    }
+
     var localStoragecart = localStorage.getItem('cart');
     if (localStoragecart == null) {
       localStorage.setItem('cart', JSON.stringify(this.cart));
@@ -50,29 +62,46 @@ export class AdmTotemProductsScrceenComponent {
     var value = event.target.value;
     switch (value) {
       case 'Salgados':
+        localStorage.setItem(
+          'type',
+          JSON.stringify(['Salgados', 'Todos', 'Doces', 'Bebidas'])
+        );
         this.product.getProducts('/salgados', (response: any) => {
           this.products = response.products;
         });
         break;
 
       case 'Doces':
+        localStorage.setItem(
+          'type',
+          JSON.stringify(['Doces', 'Todos', 'Salgados', 'Bebidas'])
+        );
         this.product.getProducts('/doces', (response: any) => {
           this.products = response.products;
         });
         break;
 
-      case 'Doces':
+      case 'Bebidas':
+        localStorage.setItem(
+          'type',
+          JSON.stringify(['Bebidas', 'Todos', 'Salgados', 'Doces'])
+        );
         this.product.getProducts('/bebidas', (response: any) => {
           this.products = response.products;
         });
         break;
 
       default:
+        localStorage.setItem(
+          'type',
+          JSON.stringify(['Todos', 'Salgados', 'Doces', 'Bebidas'])
+        );
         this.product.getProducts('', (response: any) => {
           this.products = response.products;
         });
         break;
     }
+    window.location.reload();
   }
 
   addToCart(product: ProductData) {
@@ -86,5 +115,9 @@ export class AdmTotemProductsScrceenComponent {
     }
     this.cart.push({ product: product, quantity: 1, total: product.price });
     localStorage.setItem('cart', JSON.stringify(this.cart));
+  }
+
+  round(num: number){
+    return num.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
   }
 }

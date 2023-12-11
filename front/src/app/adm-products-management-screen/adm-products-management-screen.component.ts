@@ -55,6 +55,10 @@ export class AdmProductsManagementScreenComponent {
     );
   }
 
+  round(num: number){
+    return num.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+  }
+
   // addImage = async (files: any) => {
   //   if (files.length === 0) {
   //     return;

@@ -3,17 +3,21 @@
 >
   <div>
     <a href="/adm">
-      <button type="button" class="button">Voltar</button>
+      <button type="button" class="button-actions-back"><span class="btn-text">Voltar</span></button>
     </a>
     <button
       type="button"
-      class="button"
+      class="button-actions-new"
       data-bs-toggle="modal"
       data-bs-target="#newProductModal"
     >
-      Cadastrar Produto
+    <span class="btn-text">Cadastrar Produto</span>
     </button>
   </div>
+  <p class="products">
+    <img src="../../assets/Imagem1.png" class="img" alt="">
+    <span class="inside-products">Produtos Cadastrados: </span>
+  </p>
   <div class="d-flex flex-wrap justify-content-center align-items-center">
     @for (product of products; track products.length) {
     <div class="card" style="width: 18rem">
@@ -26,7 +30,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">{{ product.description }}</p>
-        <h5 class="card-title">R$ {{ product.price }}</h5>
+        <h5 class="card-title">{{ round(product.price) }}</h5>
         <button class="button">Deletar</button>
         <button
           type="button"

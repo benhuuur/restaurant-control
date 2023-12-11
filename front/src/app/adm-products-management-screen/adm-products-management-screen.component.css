@@ -3,9 +3,50 @@
   width: 100%;
 }
 
-.button {
+.button-actions-back {
   margin-top: 1rem;
   width: 10rem;
+  background: rgb(92, 194, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(92, 194, 255, 1) 0%,
+    rgba(69, 218, 250, 1) 100%
+  );
+  border-radius: 5px 0px 0px 5px;
+  border-style: none;
+}
+.button-actions-new {
+  margin-top: 1rem;
+  width: 16em;
+  background: rgb(92, 194, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(69, 218, 250, 1) 100%,
+    rgba(92, 194, 255, 1) 0%
+  );
+  border-radius: 0px 5px 5px 0px;
+  border-style: none;
+}
+
+.btn-text {
+  font-size: 25px;
+  font-weight: bolder;
+  color: white;
+}
+
+.products {
+  display: flex;
+  align-items: flex-end];
+  margin-top: 10px;
+  width: 100%;
+  text-align: start;
+  font-size: 35px;
+  font-weight: bolder;
+  color: black;
+}
+
+.img{
+  width: 70px;
 }
 
 .card {

@@ -13,7 +13,7 @@ Obs: 'Tem tela/Tem Interface' = Possui parte visual, mesmo sem funcionar.
 - [x] Possui tela do totem.
 - [ ] Possui tela dos gráficos.
 - [ ] Tela do totem tem interface para inserção de código da promoção.
-- [ ] Tela do totem tem interface para colocar itens na sacola.
+- [x] Tela do totem tem interface para colocar itens na sacola.
 - [x] Banco de dados criado com tabelas de Usuário, Pedido, ItemPedido, Produto, Promoção ou similar.
 - [x] Rotas no Frontend Configuradas.
 - [x] Projeto Backend C# criado.
@@ -22,7 +22,7 @@ Obs: 'Tem tela/Tem Interface' = Possui parte visual, mesmo sem funcionar.
 - [x] Entity Framework Configurado no Backend e Model gerada.
 - [x] Bilbioteca de JWT instalada.
 - [x] Operação de cadastro realmente salva um usuário no banco de dados.
-- [ ] Cadastro tem algumas validações sendo mais robusto.
+- [x] Cadastro tem algumas validações sendo mais robusto.
 - [x] Login realmente busca usuário no banco de dados.
 - [x] Aplica salt na senha do usuário.
 - [x] Aplica slow Hash na senha do usuário.
@@ -34,8 +34,8 @@ Obs: 'Tem tela/Tem Interface' = Possui parte visual, mesmo sem funcionar.
 - [ ] Adm é capaz de criar novas promoções.
 - [ ] Adm é capaz de ver Dashboard com dois gráficos de informações.
 - [ ] Gráficos do Dashboard realmente refletem os dados no banco.
-- [ ] É possível ver produtos existentes no Totem.
-- [ ] É possível adicionar itens em uma sacola.
+- [x] É possível ver produtos existentes no Totem.
+- [x] É possível adicionar itens em uma sacola.
 - [ ] Ao finalizar a compra o pedido é realmente registrado no banco de dados.
 - [ ] É possível ver o custo total do pedido.
 - [ ] É possível adicionar uma promoção com um código promocional.
